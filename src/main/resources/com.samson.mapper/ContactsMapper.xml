@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.samson.dao.ContactsDao">
+
+    <select id="selectAllPage" parameterType="Integer" resultType="Contacts">
+        SELECT id,name,tel,relationship FROM  contacts LIMIT #{page},#{size}
+    </select>
+
+    <select id="total" resultType="long">
+        SELECT count(id) FROM  contacts
+    </select>
+
+    <update id="updateContacts" parameterType="Contacts">
+        UPDATE contacts SET name=#{name},tel=#{tel},relationship=#{relationship} WHERE id#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="Integer">
+        DELETE FROM contacts WHERE id=#{id}
+    </delete>
+
+    <insert id="insertContacs" parameterType="Contacts">
+        INSERT INTO contacts (name,tel,relationship) VALUES (#{name},#{tel},#{relationship})
+    </insert>
+
+</mapper>

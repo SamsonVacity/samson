@@ -1,0 +1,10 @@
+server:
+  port: 8022
+
+spring:
+  profiles:
+    active: dev
+#    active: prod
+mybatis:
+  mapper-locations: classpath:com/samson/mapper/*.xml
+  type-aliases-package: com.samson.entity
